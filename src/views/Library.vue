@@ -1,17 +1,16 @@
 <template>
   <main class="library">
-  <p>{{childrensBooks}}</p>
-<SingleBookView />
+  <p>Detta är librarypage</p>
   
   </main>
 
 </template>
 
 <script>
-import SingleBookView from '../components/SingleBookView.vue'
+
 import ChildrensBooks from '../../src/ChildrensBooks.json'
 export default {
-    components:{SingleBookView},
+    
     data(){return{
       childrensBooks: [...ChildrensBooks]
     }},

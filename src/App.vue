@@ -2,7 +2,7 @@
   <div id="app">
     <p>test</p>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link :to="{name: 'Home'}">Home</router-link> |
       <router-link to="/Library">Library</router-link>
     </div>
     

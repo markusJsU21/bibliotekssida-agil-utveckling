@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Library from '../views/Library.vue'
+import SingleBookView from '../components/SingleBookView.vue'
 
 Vue.use(VueRouter)
 
@@ -15,9 +16,13 @@ const routes = [
     path: '/Library',
     name: 'Library',
     component: Library,
-    props:['childrensBooks']
-
   },
+  {
+    path: '/SingleBook',
+    name: 'SingleBook',
+    component: SingleBookView,
+  }
+
 ]
 
 const router = new VueRouter({

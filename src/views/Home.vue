@@ -1,6 +1,6 @@
 <template>
 <div class="app">
-<p>tjohej</p>
+<p>Detta är homepage</p>
 </div>
 </template>
 
