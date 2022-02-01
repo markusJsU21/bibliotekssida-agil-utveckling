@@ -1,7 +1,5 @@
 <template>
-<div class="app">
-<p>tjohej</p>
-</div>
+<div></div>
 </template>
 
 <script>

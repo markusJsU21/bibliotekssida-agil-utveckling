@@ -3,8 +3,30 @@
     <p>test</p>
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/Library">Library</router-link>
     </div>
-    <router-view/>
+    
+    <router-view/>  
+    
   </div>
 </template>
+
+<script>
+import ChildrensBooks from '../src/ChildrensBooks.json'
+/* import json from './json/data.json' */
+export default {
+  data(){return{
+    childrensBooks: [...ChildrensBooks]
+  }},
+}
+</script>
+
+<style>
+html {
+  background-color: #262626;
+  color: white;
+}
+#nav {
+    text-decoration: none;
+}
+</style>
