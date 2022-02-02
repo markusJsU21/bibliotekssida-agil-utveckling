@@ -15,8 +15,6 @@
         {{ book.Title }}
       </router-link>
     </div>
-
-    
   </main>
 </template>
 
@@ -36,6 +34,7 @@ export default {
 </script>
 
 <style scoped>
+
 .library {
   display: flex;
   flex-wrap: wrap;
@@ -45,5 +44,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  flex-direction: column;
+  margin-top: 5rem;
 }
 </style>
