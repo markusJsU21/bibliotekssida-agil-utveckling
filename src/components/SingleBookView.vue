@@ -46,32 +46,38 @@ export default {
 
 <style>
 .wrapper {
-    margin: auto;
+  margin: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: 800px;
-  max-width: 750px;
+  max-width: 800px;
 }
 .book-cover {
   display: flex;
-  background-color: green;
+  background-color: rgb(100, 150, 100);
   height: 100%;
   width: 45%;
   border-radius: 10px;
   color: black;
 }
+.cover-author {
+  color: rgb(12, 12, 12);
+  font-size: 30px;
+  text-align: center;
+  margin-top: 45rem;
+}
 .single-book {
   display: block;
 }
 section {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    width: 45%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 45%;
 }
 .info-box {
   display: grid;

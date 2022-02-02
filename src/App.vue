@@ -5,9 +5,7 @@
       <router-link :to="{name: 'Home'}">Home</router-link> |
       <router-link to="/Library">Library</router-link>
     </div>
-    
     <router-view/>  
-    
   </div>
 </template>
 
