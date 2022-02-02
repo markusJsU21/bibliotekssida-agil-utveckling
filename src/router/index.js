@@ -30,7 +30,6 @@ const routes = [
     component: ReadingList,
     props: true
   }
-
 ]
 
 const router = new VueRouter({

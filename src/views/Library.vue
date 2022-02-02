@@ -1,6 +1,6 @@
 <template>
   <main class="library">
-  <p>Detta är librarypage</p>
+  <p>LIBRARY</p>
 
   <router-link v-for="book of childrensBooks" :key="book.Title" :to="{name: 'SingleBook', params:{id:book}, 
   props:{plot:book.plot}}" >
@@ -12,12 +12,10 @@
 <script>
 import ChildrensBooks from '../../src/ChildrensBooks.json'
 export default {
-    
     data(){return{
       childrensBooks: [...ChildrensBooks], 
       readingList: [],
     }},
-
     created(){
       this.readingList = this.$route.params.id;
     },

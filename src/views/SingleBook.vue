@@ -18,7 +18,7 @@
           <span class="pages"> Pages: {{ pages }} </span>
           <span class="publisher"> Publisher: {{ publisher }} </span>
         </div>
-        <button @click="addBtn()">Add to list</button>
+        <button @click="addBtn()">Oh, I want to read it!</button>
       </section>
     </div>
   </div>
@@ -49,12 +49,11 @@ export default {
     addBtn() {
         this.$root.books.push(this.listItem);
     }
-    
   },
 };
 </script>
 
-<style>
+<style >
 .wrapper {
   margin: auto;
   display: flex;
@@ -97,10 +96,17 @@ section {
   grid-row-gap: 10px;
   max-width: 600px;
 
-  background-color: #5f5d5d;
+  background-color: #3b3838;
   color: white;
   padding: 10px;
   border-radius: 10px;
+}
+button{
+  background-color: #f3f3f3;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 .audience {
   grid-area: 1 / 1 / 2 / 2;
