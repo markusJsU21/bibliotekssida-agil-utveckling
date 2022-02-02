@@ -21,6 +21,7 @@ const routes = [
     path: '/Library/:id',
     name: 'SingleBook',
     component: SingleBookView,
+    props: true
   }
 
 ]
