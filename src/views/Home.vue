@@ -1,6 +1,6 @@
 <template>
 <div class="app">
-<p>HOME</p>
+<h2>HOME</h2>
 </div>
 </template>
 
@@ -10,6 +10,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+*{
+    text-align: center;
+}
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="single-book">
-    <h1>SingleBookView</h1>
     <button @click="back">Back button</button>
 
     <div class="wrapper">
       <div class="book-cover">
-        <div class="cover-author">{{ title }} {{ author }}</div>
+        <div class="cover-author">
+          {{ title }} {{ author }}</div>
       </div>
 
       <section>
@@ -40,20 +40,20 @@ export default {
         listTitle: this.$route.params.id.Title,
         listAuthor: this.$route.params.id.Author,
       },
-    }
+    };
   },
   methods: {
     back() {
       this.$router.back();
     },
     addBtn() {
-        this.$root.books.push(this.listItem);
-    }
+      this.$root.books.push(this.listItem);
+    },
   },
 };
 </script>
 
-<style >
+<style scoped>
 .wrapper {
   margin: auto;
   display: flex;
@@ -101,12 +101,17 @@ section {
   padding: 10px;
   border-radius: 10px;
 }
-button{
+button {
   background-color: #f3f3f3;
   color: black;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
+}
+
+button:active {
+  background-color: #241c1c;
+  color: white;
 }
 .audience {
   grid-area: 1 / 1 / 2 / 2;

@@ -1,27 +1,49 @@
 <template>
   <main class="library">
-  <p>LIBRARY</p>
+    <h2>LIBRARY</h2>
 
-  <router-link v-for="book of childrensBooks" :key="book.Title" :to="{name: 'SingleBook', params:{id:book}, 
-  props:{plot:book.plot}}" >
-  {{book.Title}}
-  </router-link> |
+    <div class="books-list">
+      <router-link
+        v-for="book of childrensBooks"
+        :key="book.Title"
+        :to="{
+          name: 'SingleBook',
+          params: { id: book },
+          props: { plot: book.plot },
+        }"
+      >
+        {{ book.Title }}
+      </router-link>
+    </div>
+
+    
   </main>
 </template>
 
 <script>
-import ChildrensBooks from '../../src/ChildrensBooks.json'
+import ChildrensBooks from "../../src/ChildrensBooks.json";
 export default {
-    data(){return{
-      childrensBooks: [...ChildrensBooks], 
+  data() {
+    return {
+      childrensBooks: [...ChildrensBooks],
       readingList: [],
-    }},
-    created(){
-      this.readingList = this.$route.params.id;
-    },
-}
+    };
+  },
+  created() {
+    this.readingList = this.$route.params.id;
+  },
+};
 </script>
 
-<style>
-
+<style scoped>
+.library {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.books-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>
