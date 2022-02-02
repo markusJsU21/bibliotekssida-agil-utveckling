@@ -1,7 +1,7 @@
 <template>
   <main class="library">
   <p>Detta är librarypage</p>
-  
+  <router-view></router-view>
   </main>
 
 </template>

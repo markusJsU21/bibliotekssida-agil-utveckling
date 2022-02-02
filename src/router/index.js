@@ -18,7 +18,7 @@ const routes = [
     component: Library,
   },
   {
-    path: '/SingleBook',
+    path: '/Library/:id',
     name: 'SingleBook',
     component: SingleBookView,
   }
