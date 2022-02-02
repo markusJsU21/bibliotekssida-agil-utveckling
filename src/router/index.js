@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Library from '../views/Library.vue'
-import SingleBookView from '../components/SingleBookView.vue'
+import SingleBook from '../views/SingleBook.vue'
+import ReadingList from '../views/ReadingList.vue'
 
 Vue.use(VueRouter)
 
@@ -20,7 +21,13 @@ const routes = [
   {
     path: '/Library/:id',
     name: 'SingleBook',
-    component: SingleBookView,
+    component: SingleBook,
+    props: true
+  },
+  {
+    path: '/ReadingList',
+    name: 'ReadingList',
+    component: ReadingList,
     props: true
   }
 
