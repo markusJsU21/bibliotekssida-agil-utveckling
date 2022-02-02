@@ -1,8 +1,7 @@
 <template>
   <main class="library">
-    <h2>LIBRARY</h2>
-
     <div class="books-list">
+      <h2>LIBRARY</h2>
       <router-link
         v-for="book of childrensBooks"
         :key="book.Title"
@@ -34,17 +33,15 @@ export default {
 </script>
 
 <style scoped>
-
 .library {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.books-list{
+.books-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
-  margin-top: 5rem;
 }
 </style>
