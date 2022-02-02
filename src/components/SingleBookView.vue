@@ -52,7 +52,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: 800px;
-  max-width: 800px;
+  max-width: 750px;
 }
 .book-cover {
   display: flex;
