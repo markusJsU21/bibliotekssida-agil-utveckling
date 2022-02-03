@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/Library">Library</router-link>
-      <router-link to="/ReadingList">Reading List</router-link>
+      <router-link to="/ReadingList">Reading List ({{readingListLength}})</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -10,6 +10,11 @@
 
 <script>
 export default {
+  computed: {
+    readingListLength(){
+      return this.$store.state.ReadingList.length
+    }
+  }
 };
 </script>
 

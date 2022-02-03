@@ -14,10 +14,11 @@ export default new Vuex.Store({
       state.ReadingList.push(payload);
     }
   },
+  //Adderade 'payload' till action addToReadingList /Markus
   actions: {
-    addToReadingList(context) {
+    addToReadingList(context, payload) {
       console.log(context)
-      context.commit('addToReadingList')
+      context.commit('addToReadingList', payload)
     },
   },
   modules: {
