@@ -16,11 +16,14 @@
       
       
     </div>
+    <button @click="prevPage()">prev</button>
+    <button @click="nextPage()">next</button>
   </main>
 </template>
 
 <script>
 export default {
+<<<<<<< HEAD
 
   data(){
     return{
@@ -54,9 +57,35 @@ export default {
 
 
   },
+=======
+  data() {
+    return {
+      currentPage: "",
+      start: 0,
+      end: 4,
+    };
+  },
+  methods: {
+    nextPage() {
+      this.currentPage = this.books.slice(this.start, this.end);
+        this.end += 4;
+        this.start += 4;
+    },
+    prevPage() {
+      this.end -= 4;
+      this.start -= 4;
+      this.currentPage = this.books.slice(this.start, this.end);
+    },
+  },
+
+>>>>>>> 026e4150c1cc4aaf112b8abacac61c8abffd7cc8
   computed: {
+    //hämntar från store och sparar i books()
     books() {
       return this.$store.state.ChildrensBooks;
+    },
+    booksLength() {
+      return this.books.length;
     },
   },
 };

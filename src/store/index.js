@@ -12,9 +12,13 @@ export default new Vuex.Store({
   mutations: {
     addToReadingList(state, payload) {
       state.ReadingList.push(payload);
-    },
+    }
   },
   actions: {
+    addToReadingList(context) {
+      console.log(context)
+      context.commit('addToReadingList')
+    },
   },
   modules: {
   }

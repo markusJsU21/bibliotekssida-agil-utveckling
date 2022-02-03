@@ -38,8 +38,7 @@ export default {
       this.$router.back();
     },
     addBtn() {
-      /* this.$root.books.push(this.listItem); */
-      this.$store.commit('addToReadingList', this.book);
+      this.$store.dispatch('addToReadingList', this.book);
     },
   },
 

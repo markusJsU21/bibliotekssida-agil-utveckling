@@ -7,13 +7,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
-
-  data() {
-    return{
-      books: [],
-    }
-  },
-
   store,
   render: h => h(App)
 }).$mount('#app')
