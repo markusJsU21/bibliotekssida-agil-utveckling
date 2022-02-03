@@ -1,22 +1,24 @@
 <template>
   <div class="single-book">
-    <button @click="back"> Back </button>
+    <button @click="back">Back</button>
 
     <div class="wrapper">
       <div class="book-cover">
         <div class="cover-author">
-          {{ title }} {{ author }}</div>
+          {{ book.Title }}
+          {{ book.Author }}
+        </div>
       </div>
 
       <section>
-        <h2>{{ title }}</h2>
-        <h3>by: {{ author }}</h3>
-        <p>{{ plot }}</p>
+        <h2>{{ book.Title }}</h2>
+        <h3>by: {{ book.Author }}</h3>
+        <p>{{ book.Plot }}</p>
         <div class="info-box">
-          <span class="audience"> Audience: {{ audience }} </span>
-          <span class="year"> First published: {{ year }} </span>
-          <span class="pages"> Pages: {{ pages }} </span>
-          <span class="publisher"> Publisher: {{ publisher }} </span>
+          <span class="audience"> Audience: {{ book.Audience }} </span>
+          <span class="year"> First published: {{ book.Year }} </span>
+          <span class="pages"> Pages: {{ book.Pages }} </span>
+          <span class="publisher"> Publisher: {{ book.Publisher }} </span>
         </div>
         <button @click="addBtn()">Oh, I want to read it!</button>
       </section>
@@ -28,18 +30,7 @@
 export default {
   data() {
     return {
-      title: this.$route.params.id.Title,
-      plot: this.$route.params.id.Plot,
-      author: this.$route.params.id.Author,
-      audience: this.$route.params.id.Audience,
-      year: this.$route.params.id.Year,
-      pages: this.$route.params.id.Pages,
-      publisher: this.$route.params.id.Publisher,
-
-      listItem: {
-        listTitle: this.$route.params.id.Title,
-        listAuthor: this.$route.params.id.Author,
-      },
+      id: this.$route.params.id,
     };
   },
   methods: {
@@ -47,7 +38,18 @@ export default {
       this.$router.back();
     },
     addBtn() {
-      this.$root.books.push(this.listItem);
+      /* this.$root.books.push(this.listItem); */
+      this.$store.commit('addToReadingList', this.book);
+    },
+  },
+
+  // läser från store
+  computed: {
+    book() {
+      return this.books.find((book) => book.id === this.$route.params.id);
+    },
+    books() {
+      return this.$store.state.ChildrensBooks;
     },
   },
 };
@@ -112,7 +114,6 @@ button:hover {
   background-color: #050505;
   color: white;
 }
-
 
 .audience {
   grid-area: 1 / 1 / 2 / 2;

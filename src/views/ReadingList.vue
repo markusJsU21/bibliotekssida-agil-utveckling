@@ -4,8 +4,8 @@
 
     <section>
       <div v-for="book of books" :key="book.Title">
-        <p class="book-title">{{ book.listTitle }}</p>
-        <p class="book-author">by {{ book.listAuthor }}</p>
+        <p class="book-title">{{ book.Title }}</p>
+        <p class="book-author">by {{ book.Author }}</p>
       </div>
     </section>
   </div>
@@ -13,11 +13,11 @@
 
 <script>
 export default {
-  data() {
-    return {
-      books: this.$root.books,
-    };
-  },
+  computed:{
+    books() {
+      return this.$store.state.ReadingList;
+    },
+  }
 };
 </script>
 

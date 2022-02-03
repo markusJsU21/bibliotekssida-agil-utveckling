@@ -3,13 +3,9 @@
     <div class="books-list">
       <h2>LIBRARY</h2>
       <router-link
-        v-for="book of childrensBooks"
-        :key="book.Title"
-        :to="{
-          name: 'SingleBook',
-          params: { id: book },
-          props: { plot: book.plot },
-        }"
+        v-for="book in books"
+        :key="book.id"
+        :to="'/Library/' + book.id"
       >
         {{ book.Title }}
       </router-link>
@@ -18,16 +14,11 @@
 </template>
 
 <script>
-import ChildrensBooks from "../../src/ChildrensBooks.json";
 export default {
-  data() {
-    return {
-      childrensBooks: [...ChildrensBooks],
-      readingList: [],
-    };
-  },
-  created() {
-    this.readingList = this.$route.params.id;
+  computed: {
+    books() {
+      return this.$store.state.ChildrensBooks;
+    },
   },
 };
 </script>

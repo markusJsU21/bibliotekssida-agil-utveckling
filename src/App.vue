@@ -10,13 +10,7 @@
 </template>
 
 <script>
-import ChildrensBooks from "../src/ChildrensBooks.json";
 export default {
-  data() {
-    return {
-      childrensBooks: [...ChildrensBooks],
-    };
-  },
 };
 </script>
 

@@ -1,5 +1,6 @@
 [
  {
+  "id": "1",
   "Title": "Goodnight Moon",
   "Author": "Margaret Wise Brown",
   "Publisher": "Harper Festival",
@@ -9,6 +10,7 @@
   "Audience": "1 - 4 years"
  },
  {
+     "id": "2",
   "Title": "The Very Hungry Caterpillar",
   "Author": "Eric Carle",
   "Publisher": "Philomel Books",
@@ -18,6 +20,7 @@
   "Audience": "2 - 3 years"
  },
  {
+     "id": "3",
   "Title": "A Wrinkle in Time",
   "Author": "Madeleine L’Engle",
   "Publisher": "Square Fish",
@@ -27,6 +30,7 @@
   "Audience": "10 - 14 years"
  },
  {
+     "id": "4",
   "Title": "Harold and the Purple Crayon",
   "Author": "Crockett Johnson",
   "Publisher": "Harper Collins",
@@ -36,6 +40,7 @@
   "Audience": "4 - 8 years"
  },
  {
+     "id": "5",
   "Title": "Where the Wild Things Are",
   "Author": "Maurice Sendak",
   "Publisher": "Harper Collins",
@@ -45,6 +50,7 @@
   "Audience": "4 - 8 years"
  },
  {
+     "id": "6",
   "Title": "Madeline",
   "Author": "Ludwig Bemelmans",
   "Publisher": "The Viking Press",
@@ -54,6 +60,7 @@
   "Audience": "3 - 7 years"
  },
  {
+     "id": "7",
   "Title": "The Tale of Peter Rabbit",
   "Author": "Beatrix Potter",
   "Publisher": "Warne",
@@ -63,6 +70,7 @@
   "Audience": "3 - 7 years"
  },
  {
+     "id": "8",
   "Title": "Charlotte’s Web",
   "Author": "E. B. White",
   "Publisher": "Harper Collins",
