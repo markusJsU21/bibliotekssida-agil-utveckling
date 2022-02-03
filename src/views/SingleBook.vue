@@ -1,6 +1,6 @@
 <template>
   <div class="single-book">
-    <button @click="back">Back button</button>
+    <button @click="back"> Back </button>
 
     <div class="wrapper">
       <div class="book-cover">
@@ -108,11 +108,12 @@ button {
   padding: 10px;
   margin: 10px;
 }
-
-button:active {
-  background-color: #241c1c;
+button:hover {
+  background-color: #050505;
   color: white;
 }
+
+
 .audience {
   grid-area: 1 / 1 / 2 / 2;
 }
