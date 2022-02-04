@@ -3,11 +3,12 @@
     <div class="book-list">
       <h2>LIBRARY</h2>
       <div class="search-field">
-        <input type="text" v-model="search" placeholder="sök book med title" @input="updateSearchResult(search)" >
+        <input type="text" v-model="search" placeholder="sök bok på titel eller författare..." @input="updateSearchResult(search)" >
         <span v-if="searchResults">
-        <router-link :to="'/Library/' + book.id" class="search-result" v-for="book of searchResults" :key="book.id">{{book.Title}}</router-link> 
+        <router-link :to="'/Library/' + book.id" class="search-result" v-for="book of searchResults" :key="book.id">{{book.Title}} <p>by {{book.Author}}</p> </router-link> 
         </span>
       </div>
+      <h3>Browse in our catalog</h3>
       <router-link
         v-for="book in currentBooks"
         :key="book.id"
@@ -99,8 +100,32 @@ export default {
 
 .search-result{
   background-color: rgb(100, 150, 100);
-  color: black;
+  color: whitesmoke;
   border-radius: 5px;
+}
+
+input{
+  height: 3rem;
+  width: 15rem;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+
+a{
+  padding:.3rem;
+  font-weight: normal;
+   display: block;
+}
+p{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: small;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+h3{
+  margin-top: 4rem;
 }
 
 </style>
