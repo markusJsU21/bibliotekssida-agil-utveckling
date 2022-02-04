@@ -2,16 +2,23 @@
   <main class="library">
     <div class="books-list">
       <h2>LIBRARY</h2>
+      <div>
+        <input type="text" v-model="title" placeholder="sök book med title" @input="updateSearchResult(title)" >
+        <span>
+          {{searchResults}}
+        </span>
+      </div>
       <router-link
-        v-for="book in currentPage"
+        v-for="book in currentBooks"
         :key="book.id"
         :to="'/Library/' + book.id"
       >
         {{ book.Title }}
       </router-link>
       <div class="btn">
-        <button @click="prevPage()">prev</button>
-        <button @click="nextPage()">next</button>
+        <button v-if="currentPage != 1" @click="prevPage()">prev</button>
+       {{currentPage}}/ {{maxPages}}
+        <button  v-if="currentPage != maxPages" @click="nextPage()">next</button>
       </div>
     </div>
   </main>
@@ -21,44 +28,59 @@
 export default {
   data() {
     return {
-      start: 0,
-      end: 4,
-      currentPage: "",
+      title: ''
     };
+  },
+  mounted(){
+    this.$store.dispatch('readArrayLength')
   },
 
   methods: {
+    updateSearchResult(payload){
+      console.log(payload);
+      this.$store.dispatch('updateSearchResult', payload)
+    },
     nextPage() {
-      this.currentPage = this.books.slice(this.start, this.end);
-      if (this.end < this.books.length) {
-        this.start += 4;
-        this.end += 4;
-      }
-      console.log(this.start + "" + this.end);
+     this.$store.dispatch('nextPage')
     },
 
     prevPage() {
-      this.currentPage = this.books.slice(this.start, this.end);
-      if (this.start > 0) {
-        this.start -= 4;
-        this.end -= 4;
-      }
-      console.log(this.start + "" + this.end);
+      this.$store.dispatch('prevPage')
     },
   },
   computed: {
     //hämntar från store och sparar i books()
+    searchResults(){
+      return this.$store.state.searchResults
+    },
+      start(){
+        return this.$store.state.start
+      },
+      end(){
+        return this.$store.state.end
+      },
     books() {
       return this.$store.state.ChildrensBooks;
     },
     booksLength() {
       return this.books.length;
     },
+    maxPages(){
+      return this.$store.state.maxPages
+    },
+    currentPage(){
+      return this.$store.state.currentPage
+    },
+    currentBooks(){
+      
+      return this.$store.state.ChildrensBooks.slice(this.start, this.end)
+    },
   },
 };
 </script>
 
 <style scoped>
+
 .library {
   display: flex;
   flex-wrap: wrap;
