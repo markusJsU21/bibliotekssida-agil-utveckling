@@ -21,6 +21,9 @@ export default new Vuex.Store({
     setMaxPages(state, num){
       state.maxPages = num
     },
+    clearSearchField(state){
+      state.searchResults = []
+    },
     nextPage(state){
           state.start += 4
           state.end += 4
@@ -32,22 +35,34 @@ export default new Vuex.Store({
         state.currentPage--
     },
     updateSearchResult(state, payload){
-      state.searchResults = state.ChildrensBooks.filter(title => title.Title == payload)
-     // console.log(state.searchResults);
+      
+      if(payload.length){
+        state.searchResults = state.ChildrensBooks.filter(title => {
+          return title.Title.toLowerCase().includes(payload) || 
+            title.Author.toLowerCase().includes(payload) 
+            
+      })
+     }
+      else{
+        state.searchResults = []
+      }
+      
     },
   },
   //Adderade 'payload' till action addToReadingList /Markus
   actions: {
     addToReadingList(context, payload) {
-     // console.log(context)
+
       context.commit('addToReadingList', payload)
     },
     nextPage(context){
       context.commit('nextPage')
     },
     readArrayLength(context){
-     // console.log(Math.ceil(ChildrensBooks.length / 4))
       context.commit('setMaxPages', Math.ceil(ChildrensBooks.length / 4))
+    },
+    clearSearchField(context){
+      context.commit('clearSearchField')
     },
     prevPage(context){
       context.commit('prevPage')

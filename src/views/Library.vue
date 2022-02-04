@@ -1,11 +1,11 @@
 <template>
   <main class="library">
-    <div class="books-list">
+    <div class="book-list">
       <h2>LIBRARY</h2>
-      <div>
-        <input type="text" v-model="title" placeholder="sök book med title" @input="updateSearchResult(title)" >
-        <span>
-          {{searchResults}}
+      <div class="search-field">
+        <input type="text" v-model="search" placeholder="sök book med title" @input="updateSearchResult(search)" >
+        <span v-if="searchResults">
+        <router-link :to="'/Library/' + book.id" class="search-result" v-for="book of searchResults" :key="book.id">{{book.Title}}</router-link> 
         </span>
       </div>
       <router-link
@@ -28,17 +28,21 @@
 export default {
   data() {
     return {
-      title: ''
+      search: ''
     };
   },
   mounted(){
     this.$store.dispatch('readArrayLength')
+    this.$store.dispatch('clearSearchField')
   },
 
   methods: {
     updateSearchResult(payload){
-      console.log(payload);
-      this.$store.dispatch('updateSearchResult', payload)
+     
+      
+        
+        this.$store.dispatch('updateSearchResult', payload.toLowerCase())
+     
     },
     nextPage() {
      this.$store.dispatch('nextPage')
@@ -72,9 +76,9 @@ export default {
       return this.$store.state.currentPage
     },
     currentBooks(){
-      
       return this.$store.state.ChildrensBooks.slice(this.start, this.end)
     },
+    
   },
 };
 </script>
@@ -86,10 +90,17 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
-.books-list {
+.books-list, .search-field {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: column;
 }
+
+.search-result{
+  background-color: rgb(100, 150, 100);
+  color: black;
+  border-radius: 5px;
+}
+
 </style>

@@ -36,5 +36,7 @@ a {
   color: #bfc5cc;
   text-decoration: none;
   padding: 1rem;
+  display: block;
+  margin: .2rem 0;
   }
 </style>
