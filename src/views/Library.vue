@@ -1,27 +1,73 @@
 <template>
   <main class="library">
-  <p>LIBRARY</p>
-
-  <router-link v-for="book of childrensBooks" :key="book.Title" :to="{name: 'SingleBook', params:{id:book}, 
-  props:{plot:book.plot}}" >
-  {{book.Title}}
-  </router-link> |
+    <div class="books-list">
+      <h2>LIBRARY</h2>
+      <router-link
+        v-for="book in currentPage"
+        :key="book.id"
+        :to="'/Library/' + book.id"
+      >
+        {{ book.Title }}
+      </router-link>
+      <div class="btn">
+        <button @click="prevPage()">prev</button>
+        <button @click="nextPage()">next</button>
+      </div>
+    </div>
   </main>
 </template>
 
 <script>
-import ChildrensBooks from '../../src/ChildrensBooks.json'
 export default {
-    data(){return{
-      childrensBooks: [...ChildrensBooks], 
-      readingList: [],
-    }},
-    created(){
-      this.readingList = this.$route.params.id;
+  data() {
+    return {
+      start: 0,
+      end: 4,
+      currentPage: "",
+    };
+  },
+
+  methods: {
+    nextPage() {
+      this.currentPage = this.books.slice(this.start, this.end);
+      if (this.end < this.books.length) {
+        this.start += 4;
+        this.end += 4;
+      }
+      console.log(this.start + "" + this.end);
     },
-}
+
+    prevPage() {
+      this.currentPage = this.books.slice(this.start, this.end);
+      if (this.start > 0) {
+        this.start -= 4;
+        this.end -= 4;
+      }
+      console.log(this.start + "" + this.end);
+    },
+  },
+  computed: {
+    //hämntar från store och sparar i books()
+    books() {
+      return this.$store.state.ChildrensBooks;
+    },
+    booksLength() {
+      return this.books.length;
+    },
+  },
+};
 </script>
 
-<style>
-
+<style scoped>
+.library {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.books-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
 </style>

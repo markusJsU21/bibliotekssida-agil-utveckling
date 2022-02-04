@@ -1,23 +1,20 @@
 <template>
   <div id="app">
-    <p>test</p>
     <div id="nav">
-      <router-link :to="{ name: 'Home' }">Home</router-link> 
-      <router-link to="/Library">Library</router-link> 
-      <router-link to="/ReadingList">Reading List</router-link> 
+      <router-link to="/Library">Library</router-link>
+      <router-link to="/ReadingList">Reading List ({{readingListLength}})</router-link>
     </div>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ChildrensBooks from "../src/ChildrensBooks.json";
 export default {
-  data() {
-    return {
-      childrensBooks: [...ChildrensBooks],
-    };
-  },
+  computed: {
+    readingListLength(){
+      return this.$store.state.ReadingList.length
+    }
+  }
 };
 </script>
 
@@ -26,12 +23,18 @@ html {
   background-color: #181717;
   color: white;
 }
-#nav {
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 36px;
-  background-color: rgb(100, 95, 95);
-  color: white;
+#app {
+  font-family: Helvetica, Arial, sans-serif;
 }
+#nav {
+  text-align: center;
+  padding: 1rem;
+}
+
+a {
+  font-weight: bold;
+  color: #bfc5cc;
+  text-decoration: none;
+  padding: 1rem;
+  }
 </style>
